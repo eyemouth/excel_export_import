@@ -9,6 +9,7 @@ import zyx.export.domain.excel.ExportExcelResult;
 import zyx.export.exception.FileExportException;
 import zyx.export.impl.CSVExportor;
 import zyx.export.impl.ExcelExportor;
+import zyx.export.impl.NewExcelExportor;
 
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class FileExportor {
         ExportType exportType = exportConfig.getExportType();
         switch (exportType) {
             case EXCEL2007:
-                Workbook workbook = new ExcelExportor().getExportResult(data, exportConfig.getExportCells());
+                Workbook workbook = new NewExcelExportor().getExportResult(data, exportConfig.getExportCells());
                 ExportExcelResult exportExcelResult = new ExportExcelResult();
                 exportExcelResult.setWorkbook(workbook);
                 exportExcelResult.setFileName(exportConfig.getFileName());

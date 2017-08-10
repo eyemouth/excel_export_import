@@ -1,3 +1,4 @@
+import zyx.domain.ObjectDomain;
 import zyx.export.ExportConfigFactory;
 import zyx.export.FileExportor;
 import zyx.export.domain.common.ExportConfig;
@@ -54,7 +55,7 @@ public class Test {
     }
 
     public static void testExport() throws FileNotFoundException, FileExportException {
-        ExportConfig exportConfig = ExportConfigFactory.getExportConfig(Test.class.getResourceAsStream("export/exportconfig.xml"));
+/*        ExportConfig exportConfig = ExportConfigFactory.getExportConfig(Test.class.getResourceAsStream("export/exportconfig.xml"));
         //map也可以换成一个实体类
         List<Map> lists = new LinkedList<>();
         for (int i = 0; i < 10; i++) {
@@ -65,6 +66,21 @@ public class Test {
             maps.put("float", Float.valueOf(i));
             maps.put("bigdecimal", BigDecimal.valueOf(i));
             lists.add(maps);
+        }
+        ExportResult exportResult = FileExportor.getExportResult(exportConfig, lists);
+        OutputStream outputStream = new FileOutputStream("d://output.xlsx");
+        exportResult.export(outputStream);*/
+
+        ExportConfig exportConfig = ExportConfigFactory.getExportConfig(Test.class.getResourceAsStream("export/exportobjectconfig.xml"));
+        //换成实体类
+        List<ObjectDomain> lists = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            ObjectDomain domain = new ObjectDomain();
+            domain.setCountry("中国");
+            domain.setProvince("江苏省");
+            domain.setCity("南京市");
+            domain.setName("朱元璋");
+            lists.add(domain);
         }
         ExportResult exportResult = FileExportor.getExportResult(exportConfig, lists);
         OutputStream outputStream = new FileOutputStream("d://output.xlsx");

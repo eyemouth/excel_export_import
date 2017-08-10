@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exportFile>
+	<fileName>exportobjectConfig</fileName>
+	<!--exportType 0:EXCEL2007,1:csv);
+	 titile 导出展示的列title名
+	   alias对应的别名，映射的字段名-->
+	<exportType>0</exportType>
+	<cell>
+		<title>国家</title>
+		<alias>country</alias>
+	</cell>
+	<cell>
+		<title>省份</title>
+		<alias>province</alias>
+	</cell>
+	<cell>
+		<title>地市</title>
+		<alias>city</alias>
+	</cell>
+	<cell>
+		<title>姓名</title>
+		<alias>name</alias>
+	</cell>
+</exportFile>
+
